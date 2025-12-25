@@ -20,6 +20,7 @@ import { FilePreview } from "@/components/file-preview"
 import { ColumnMapping, type DatabaseColumn } from "@/components/column-mapping"
 import { parseCSVFile, type ParsedTransaction } from "@/lib/csv-parser"
 import { parseExcelFile } from "@/lib/excel-parser"
+import Papa from "papaparse"
 import { Loader2, CheckCircle2, AlertCircle } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { cn } from "@/lib/utils"
@@ -103,7 +104,7 @@ export default function TransactionsPage() {
         
         setParsedData(result.data)
         setParseErrors(
-          result.errors.map((err) => ({
+          result.errors.map((err: Papa.ParseError) => ({
             message: err.message,
             row: err.row,
           }))

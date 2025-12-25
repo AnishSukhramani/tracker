@@ -42,8 +42,8 @@ export function FilePreview({
   // Get all unique column names from the data
   const columns = React.useMemo(() => {
     const columnSet = new Set<string>()
-    previewData.forEach((row) => {
-      Object.keys(row).forEach((key) => columnSet.add(key))
+    previewData.forEach((row: ParsedTransaction) => {
+      Object.keys(row).forEach((key: string) => columnSet.add(key))
     })
     return Array.from(columnSet).sort()
   }, [previewData])

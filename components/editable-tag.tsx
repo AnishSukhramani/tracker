@@ -119,12 +119,12 @@ export function EditableTags({
   }
 
   const handleRemoveTag = (tagToRemove: string) => {
-    onTagsChange(tags.filter((t) => t !== tagToRemove))
+    onTagsChange(tags.filter((t: string) => t !== tagToRemove))
   }
 
   const handleUpdateTag = (oldTag: string, newTag: string) => {
     if (newTag && newTag !== oldTag && !tags.includes(newTag)) {
-      onTagsChange(tags.map((t) => (t === oldTag ? newTag : t)))
+      onTagsChange(tags.map((t: string) => (t === oldTag ? newTag : t)))
     } else if (!newTag) {
       handleRemoveTag(oldTag)
     }

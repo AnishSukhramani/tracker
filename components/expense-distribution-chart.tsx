@@ -67,7 +67,7 @@ export function ExpenseDistributionChart({
           const untagged = "Untagged"
           tagTotals.set(untagged, (tagTotals.get(untagged) || 0) + txn.withdrawal_amt)
         } else {
-          tags.forEach((tag) => {
+          tags.forEach((tag: string) => {
             tagTotals.set(tag, (tagTotals.get(tag) || 0) + txn.withdrawal_amt)
           })
         }

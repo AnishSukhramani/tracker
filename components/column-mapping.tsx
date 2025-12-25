@@ -56,8 +56,8 @@ export function ColumnMapping({
   const csvColumns = React.useMemo(() => {
     if (data.length === 0) return []
     const columnSet = new Set<string>()
-    data.forEach((row) => {
-      Object.keys(row).forEach((key) => columnSet.add(key))
+    data.forEach((row: ParsedTransaction) => {
+      Object.keys(row).forEach((key: string) => columnSet.add(key))
     })
     return Array.from(columnSet).sort()
   }, [data])
@@ -144,7 +144,7 @@ export function ColumnMapping({
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        {csvColumns.map((csvColumn) => {
+        {csvColumns.map((csvColumn: string) => {
           const suggestion = suggestions[csvColumn]
           const currentMapping = mapping[csvColumn] || null
 
@@ -170,7 +170,7 @@ export function ColumnMapping({
                   <SelectValue placeholder="Select column..." />
                 </SelectTrigger>
                 <SelectContent>
-                  {DB_COLUMNS.map((dbCol) => (
+                  {DB_COLUMNS.map((dbCol: { value: DatabaseColumn; label: string; required: boolean }) => (
                     <SelectItem key={dbCol.value} value={dbCol.value}>
                       {dbCol.label}
                     </SelectItem>

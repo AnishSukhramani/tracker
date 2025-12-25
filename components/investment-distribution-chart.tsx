@@ -85,7 +85,7 @@ export function InvestmentDistributionChart({
           tagDisplayNames.set(uncategorized, "Uncategorized")
         } else {
           // Group by other tags (fd, etc.) - case-insensitive grouping
-          otherTags.forEach((tag) => {
+          otherTags.forEach((tag: string) => {
             const normalizedTag = tag.toLowerCase()
             // Use first occurrence's original case for display
             if (!tagDisplayNames.has(normalizedTag)) {

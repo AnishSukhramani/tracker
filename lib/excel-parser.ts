@@ -64,7 +64,7 @@ export async function parseExcelFile(file: File): Promise<ParseResult> {
         // Get headers from first row and normalize them
         const firstRow = jsonData[0]
         const originalHeaders = Object.keys(firstRow)
-        const headers = originalHeaders.map((h) =>
+        const headers = originalHeaders.map((h: string) =>
           h.trim().toLowerCase().replace(/\s+/g, "_")
         )
 
@@ -91,7 +91,7 @@ export async function parseExcelFile(file: File): Promise<ParseResult> {
             })
 
             // Only add rows that have at least one non-empty value
-            if (Object.values(normalizedRow).some((v) => v && String(v).trim())) {
+            if (Object.values(normalizedRow).some((v: unknown) => v && String(v).trim())) {
               data.push(normalizedRow)
             }
           } catch (error) {
@@ -104,7 +104,7 @@ export async function parseExcelFile(file: File): Promise<ParseResult> {
 
         resolve({
           data,
-          errors: errors.map((e) => ({
+          errors: errors.map((e: { message: string; row?: number }) => ({
             type: "Quotes",
             code: "MissingQuotes",
             message: e.message,

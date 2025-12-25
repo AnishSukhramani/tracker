@@ -285,7 +285,7 @@ export default function DashboardPage() {
           const untagged = "Untagged"
           tagTotals.set(untagged, (tagTotals.get(untagged) || 0) + txn.withdrawal_amt)
         } else {
-          tags.forEach((tag) => {
+          tags.forEach((tag: string) => {
             tagTotals.set(tag, (tagTotals.get(tag) || 0) + txn.withdrawal_amt)
           })
         }
@@ -327,7 +327,7 @@ export default function DashboardPage() {
     const tagSet = new Set<string>()
     allTransactions.forEach((txn) => {
       const tags = txn.tags || []
-      tags.forEach((tag) => {
+      tags.forEach((tag: string) => {
         const lowerTag = tag.toLowerCase()
         if (lowerTag !== 'investment' && tag !== 'Untagged') {
           tagSet.add(tag)
@@ -366,14 +366,14 @@ export default function DashboardPage() {
       const isInvestment = tags.some((tag: string) => tag.toLowerCase() === 'investment')
       
       if (txn.withdrawal_amt > 0 && !isInvestment) {
-        const hasNeedsTag = needsTags.some(needTag => {
+        const hasNeedsTag = needsTags.some((needTag: string) => {
           if (needTag === 'Untagged') {
             return tags.length === 0
           }
           return tags.includes(needTag)
         })
         
-        const hasWantsTag = wantsTags.some(wantTag => {
+        const hasWantsTag = wantsTags.some((wantTag: string) => {
           if (wantTag === 'Untagged') {
             return tags.length === 0
           }
@@ -416,7 +416,7 @@ export default function DashboardPage() {
 
   const handleRemoveNeed = (tag: string) => {
     saveTagsMutation.mutate({
-      needsTags: needsTags.filter(t => t !== tag),
+      needsTags: needsTags.filter((t: string) => t !== tag),
       wantsTags,
     })
   }
@@ -424,7 +424,7 @@ export default function DashboardPage() {
   const handleRemoveWant = (tag: string) => {
     saveTagsMutation.mutate({
       needsTags,
-      wantsTags: wantsTags.filter(t => t !== tag),
+      wantsTags: wantsTags.filter((t: string) => t !== tag),
     })
   }
 
@@ -634,7 +634,7 @@ export default function DashboardPage() {
                     <SelectValue placeholder={tagsLoading ? "Loading..." : unassignedTags.length === 0 ? "No available tags" : "Select a tag to add to Needs..."} />
                   </SelectTrigger>
                   <SelectContent>
-                    {unassignedTags.map((tag) => (
+                    {unassignedTags.map((tag: string) => (
                       <SelectItem key={tag} value={tag}>
                         {tag}
                       </SelectItem>
@@ -645,7 +645,7 @@ export default function DashboardPage() {
                   {needsTags.length === 0 ? (
                     <p className="text-sm text-muted-foreground">No tags selected</p>
                   ) : (
-                    needsTags.map((tag) => (
+                    needsTags.map((tag: string) => (
                       <div
                         key={tag}
                         className="flex items-center gap-2 px-3 py-1.5 bg-blue-100 dark:bg-blue-900 rounded-md"
@@ -673,7 +673,7 @@ export default function DashboardPage() {
                     <SelectValue placeholder={tagsLoading ? "Loading..." : unassignedTags.length === 0 ? "No available tags" : "Select a tag to add to Wants..."} />
                   </SelectTrigger>
                   <SelectContent>
-                    {unassignedTags.map((tag) => (
+                    {unassignedTags.map((tag: string) => (
                       <SelectItem key={tag} value={tag}>
                         {tag}
                       </SelectItem>
@@ -684,7 +684,7 @@ export default function DashboardPage() {
                   {wantsTags.length === 0 ? (
                     <p className="text-sm text-muted-foreground">No tags selected</p>
                   ) : (
-                    wantsTags.map((tag) => (
+                    wantsTags.map((tag: string) => (
                       <div
                         key={tag}
                         className="flex items-center gap-2 px-3 py-1.5 bg-purple-100 dark:bg-purple-900 rounded-md"
@@ -871,7 +871,7 @@ export default function DashboardPage() {
                   <SelectValue placeholder="Select a month" />
                 </SelectTrigger>
                 <SelectContent>
-                  {availableMonths.map((month) => (
+                  {availableMonths.map((month: string) => (
                     <SelectItem key={month} value={month}>
                       {month}
                     </SelectItem>
@@ -896,7 +896,7 @@ export default function DashboardPage() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {monthlyExpensesByTag.map((item) => (
+                    {monthlyExpensesByTag.map((item: { tag: string; expense: number }) => (
                       <TableRow key={item.tag}>
                         <TableCell className="font-medium">{item.tag}</TableCell>
                         <TableCell className="text-right">
@@ -908,7 +908,7 @@ export default function DashboardPage() {
                       <TableCell>Total</TableCell>
                       <TableCell className="text-right">
                         {formatCurrency(
-                          monthlyExpensesByTag.reduce((sum, item) => sum + item.expense, 0)
+                          monthlyExpensesByTag.reduce((sum: number, item: { tag: string; expense: number }) => sum + item.expense, 0)
                         )}
                       </TableCell>
                     </TableRow>

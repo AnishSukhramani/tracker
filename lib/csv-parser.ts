@@ -29,11 +29,16 @@ export async function parseCSVFile(file: File): Promise<ParseResult> {
     reader.onload = (e) => {
       try {
         const csvText = e.target?.result as string
+        if (!csvText) {
+          reject(new Error("Failed to read file"))
+          return
+        }
         
         // Strip HDFC headers
-        const cleanedCSV = stripHDFCHeaders(csvText)
+        const cleanedCSV: string = stripHDFCHeaders(csvText)
         
         // Parse CSV with papaparse
+        // @ts-expect-error - papaparse type definitions have an issue with string overload
         Papa.parse(cleanedCSV, {
           header: true, // First row as headers
           skipEmptyLines: true,
@@ -83,7 +88,7 @@ export async function parseCSVFile(file: File): Promise<ParseResult> {
  */
 export function parseCSVText(csvText: string): ParseResult {
   // Strip HDFC headers
-  const cleanedCSV = stripHDFCHeaders(csvText)
+  const cleanedCSV: string = stripHDFCHeaders(csvText)
   
   const results = Papa.parse(cleanedCSV, {
     header: true,
