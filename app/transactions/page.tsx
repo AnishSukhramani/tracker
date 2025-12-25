@@ -208,8 +208,8 @@ export default function TransactionsPage() {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Transactions</h1>
-        <p className="text-muted-foreground">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Transactions</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">
           View and manage your bank transactions, or upload new statements to import transactions.
         </p>
       </div>

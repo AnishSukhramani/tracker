@@ -442,10 +442,10 @@ export default function DashboardPage() {
   ]
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4 sm:gap-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-        <p className="text-muted-foreground">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Dashboard</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">
           Overview of your financial health, spending patterns, and progress
         </p>
       </div>
@@ -549,17 +549,17 @@ export default function DashboardPage() {
             <div className="flex h-[400px] items-center justify-center text-muted-foreground">
               No expense data available
             </div>
-          ) : (
-            <div className="flex flex-row gap-6 items-start">
-              <div className="flex-1 min-w-0">
-                <ResponsiveContainer width="100%" height={400}>
+            ) : (
+            <div className="flex flex-col lg:flex-row gap-6 items-start">
+              <div className="flex-1 min-w-0 w-full">
+                <ResponsiveContainer width="100%" height={300}>
                   <PieChart>
                     <Pie
                       data={expenseChartData}
                       cx="50%"
                       cy="50%"
                       label={false}
-                      outerRadius={120}
+                      outerRadius={80}
                       fill="#8884d8"
                       dataKey="value"
                     >
@@ -578,10 +578,10 @@ export default function DashboardPage() {
                   </PieChart>
                 </ResponsiveContainer>
               </div>
-              <div className="flex-1 min-w-[400px]">
+              <div className="flex-1 w-full lg:min-w-[300px]">
                 <div 
-                  className="grid gap-x-4 gap-y-2"
-                  style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}
+                  className="grid gap-x-2 sm:gap-x-4 gap-y-2"
+                  style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))' }}
                 >
                   {expenseChartData.map((entry, index) => {
                     const total = expenseChartData.reduce((sum, item) => sum + item.value, 0)
@@ -592,7 +592,7 @@ export default function DashboardPage() {
                           className="w-4 h-4 rounded-sm flex-shrink-0"
                           style={{ backgroundColor: COLORS[index % COLORS.length] }}
                         />
-                        <span className="text-sm whitespace-nowrap">
+                        <span className="text-xs sm:text-sm truncate">
                           {entry.name} ({percentage}%)
                         </span>
                       </div>
@@ -607,16 +607,16 @@ export default function DashboardPage() {
 
       <Card>
         <CardHeader>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
             <CardTitle>Need/Want Ratio</CardTitle>
-            <div className="flex items-center gap-4 text-sm">
-              <div className="px-3 py-1.5 bg-blue-100 dark:bg-blue-900 rounded-md">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm">
+              <div className="px-2 sm:px-3 py-1 sm:py-1.5 bg-blue-100 dark:bg-blue-900 rounded-md">
                 Needs: {needsPercentage}%
               </div>
-              <div className="px-3 py-1.5 bg-purple-100 dark:bg-purple-900 rounded-md">
+              <div className="px-2 sm:px-3 py-1 sm:py-1.5 bg-purple-100 dark:bg-purple-900 rounded-md">
                 Wants: {wantsPercentage}%
               </div>
-              <div className="px-3 py-1.5 bg-muted rounded-md font-semibold">
+              <div className="px-2 sm:px-3 py-1 sm:py-1.5 bg-muted rounded-md font-semibold">
                 Ratio: {needsWantsRatio}
               </div>
             </div>
@@ -752,9 +752,9 @@ export default function DashboardPage() {
           <div className="space-y-4">
             {/* Monthly Trend Line Chart */}
             <div className="space-y-4">
-              <div className="flex items-center justify-between flex-wrap gap-4">
-                <h3 className="text-lg font-semibold">Monthly Trend</h3>
-                <div className="flex items-center gap-2 flex-wrap">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+                <h3 className="text-base sm:text-lg font-semibold">Monthly Trend</h3>
+                <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
                   <Button
                     variant={dateRange === "all" ? "default" : "outline"}
                     size="sm"
@@ -862,12 +862,12 @@ export default function DashboardPage() {
               )}
             </div>
 
-            <div className="flex items-center gap-4">
-              <Label htmlFor="month-select" className="text-sm font-medium">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+              <Label htmlFor="month-select" className="text-sm font-medium whitespace-nowrap">
                 Select Month:
               </Label>
               <Select value={selectedMonth} onValueChange={setSelectedMonth}>
-                <SelectTrigger id="month-select" className="w-[180px]">
+                <SelectTrigger id="month-select" className="w-full sm:w-[180px]">
                   <SelectValue placeholder="Select a month" />
                 </SelectTrigger>
                 <SelectContent>
@@ -887,12 +887,12 @@ export default function DashboardPage() {
                 {selectedMonth ? `No expense data available for ${selectedMonth}` : "Please select a month"}
               </div>
             ) : (
-              <div className="rounded-md border">
+              <div className="rounded-md border overflow-x-auto">
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Tag</TableHead>
-                      <TableHead className="text-right">Net Expense</TableHead>
+                      <TableHead className="min-w-[150px]">Tag</TableHead>
+                      <TableHead className="text-right min-w-[120px]">Net Expense</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>

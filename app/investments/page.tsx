@@ -55,8 +55,8 @@ export default function InvestmentsPage() {
   return (
     <div className="flex flex-col gap-4">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Investments</h1>
-        <p className="text-muted-foreground">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Investments</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">
           View and manage your investment transactions. Only transactions tagged with 'Investment' are shown here.
         </p>
       </div>

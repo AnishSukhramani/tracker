@@ -51,33 +51,39 @@ export function TopBar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center justify-between px-4">
-        <div className="flex items-center gap-2">
+      <div className="container flex h-14 items-center justify-between px-2 sm:px-4">
+        <div className="flex items-center gap-1 sm:gap-2 min-w-0 flex-1">
           <SidebarTrigger />
           <Breadcrumb>
-            <BreadcrumbList>
+            <BreadcrumbList className="flex-wrap">
               {breadcrumbs.map((crumb, index) => {
                 const isLast = index === breadcrumbs.length - 1
                 
                 return (
                   <React.Fragment key={crumb.href}>
-                    <BreadcrumbItem>
+                    <BreadcrumbItem className="hidden sm:flex">
                       {isLast ? (
-                        <BreadcrumbPage>{crumb.label}</BreadcrumbPage>
+                        <BreadcrumbPage className="truncate max-w-[120px] sm:max-w-none">{crumb.label}</BreadcrumbPage>
                       ) : (
                         <BreadcrumbLink asChild>
-                          <Link href={crumb.href}>{crumb.label}</Link>
+                          <Link href={crumb.href} className="truncate max-w-[100px] sm:max-w-none">{crumb.label}</Link>
                         </BreadcrumbLink>
                       )}
                     </BreadcrumbItem>
-                    {!isLast && <BreadcrumbSeparator />}
+                    {/* Show only last breadcrumb on mobile */}
+                    {isLast && (
+                      <BreadcrumbItem className="sm:hidden">
+                        <BreadcrumbPage className="truncate">{crumb.label}</BreadcrumbPage>
+                      </BreadcrumbItem>
+                    )}
+                    {!isLast && <BreadcrumbSeparator className="hidden sm:flex" />}
                   </React.Fragment>
                 )
               })}
             </BreadcrumbList>
           </Breadcrumb>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <ThemeToggle />
         </div>
       </div>

@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <h1 className="text-4xl font-bold tracking-tight">Welcome to Your Finance Tracker</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">Welcome to Your Finance Tracker</h1>
+        <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
           Track your finances, analyze spending, and follow Dave Ramsey's Baby Steps to financial freedom
         </p>
       </div>

@@ -344,7 +344,7 @@ export function TransactionsTable({
             </div>
           </TableCell>
           <TableCell className={isNested ? "pl-8" : ""}>
-            <div className={`max-w-[300px] ${isNested ? "" : "truncate"}`}>
+            <div className={`max-w-[200px] sm:max-w-[300px] ${isNested ? "" : "truncate"}`}>
               {transaction.narration}
             </div>
           </TableCell>
@@ -394,7 +394,7 @@ export function TransactionsTable({
   return (
     <div className="flex flex-col gap-4">
       {selectedRows.size > 0 && (
-        <div className="flex items-center justify-between rounded-lg border bg-muted/50 p-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 rounded-lg border bg-muted/50 p-3 sm:p-4">
           <span className="text-sm font-medium">
             {selectedRows.size} transaction{selectedRows.size !== 1 ? "s" : ""} selected
           </span>
@@ -441,7 +441,7 @@ export function TransactionsTable({
           </Dialog>
         </div>
       )}
-      <div className="rounded-md border">
+      <div className="rounded-md border overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow>
@@ -451,12 +451,12 @@ export function TransactionsTable({
                   onCheckedChange={toggleSelectAll}
                 />
               </TableHead>
-              <TableHead>Date</TableHead>
-              <TableHead>Narration</TableHead>
-              <TableHead>Tags</TableHead>
-              <TableHead className="text-right">Withdrawal</TableHead>
-              <TableHead className="text-right">Deposit</TableHead>
-              <TableHead className="text-right">Balance</TableHead>
+              <TableHead className="min-w-[100px]">Date</TableHead>
+              <TableHead className="min-w-[200px]">Narration</TableHead>
+              <TableHead className="min-w-[150px]">Tags</TableHead>
+              <TableHead className="text-right min-w-[120px]">Withdrawal</TableHead>
+              <TableHead className="text-right min-w-[120px]">Deposit</TableHead>
+              <TableHead className="text-right min-w-[120px]">Balance</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

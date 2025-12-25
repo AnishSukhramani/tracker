@@ -236,10 +236,10 @@ export default function BabyStepsPage() {
   }
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4 sm:gap-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Baby Steps</h1>
-        <p className="text-muted-foreground">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Baby Steps</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">
           Follow Dave Ramsey's 7 Baby Steps to financial freedom
         </p>
       </div>

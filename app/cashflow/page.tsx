@@ -60,14 +60,14 @@ export default function CashFlowPage() {
     },
   })
   return (
-    <div className="flex flex-col gap-6 relative" style={{ isolation: 'isolate' }}>
+    <div className="flex flex-col gap-4 sm:gap-6 relative" style={{ isolation: 'isolate' }}>
       <div>
-        {/* <h1 className="text-3xl font-bold tracking-tight">Cash Flow</h1> */}
+        {/* <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Cash Flow</h1> */}
       </div>
 
-      <div className="w-1/2 mx-auto relative" style={{ zIndex: 1 }}>
+      <div className="w-full sm:w-3/4 md:w-1/2 mx-auto relative" style={{ zIndex: 1 }}>
         <div className="text-sm text-muted-foreground text-center mb-2">Income Statement</div>
-        <Card className="h-[40vh] flex flex-col p-0 relative" style={{ zIndex: 1 }}>
+        <Card className="h-[30vh] sm:h-[40vh] flex flex-col p-0 relative" style={{ zIndex: 1 }}>
           {/* Green arrow from left extending into Income section */}
           <div className="absolute left-0 top-[10vh] -translate-x-[80%] -translate-y-1/2 flex items-center z-10">
             <span className="text-sm font-medium mr-2 whitespace-nowrap">Salary</span>
@@ -151,11 +151,11 @@ export default function CashFlowPage() {
         </Card>
       </div>
 
-      <div className="w-1/2 mx-auto relative" style={{ zIndex: 1 }}>
+      <div className="w-full sm:w-3/4 md:w-1/2 mx-auto relative" style={{ zIndex: 1 }}>
         <div className="text-sm text-muted-foreground text-center mb-2">Balance Sheet</div>
-        <Card className="h-[40vh] flex flex-row p-0 relative" style={{ zIndex: 1 }}>
+        <Card className="h-[30vh] sm:h-[40vh] flex flex-col sm:flex-row p-0 relative" style={{ zIndex: 1 }}>
           {/* Left part - Assets */}
-          <div className="flex-1 flex flex-col border-r relative">
+          <div className="flex-1 flex flex-col border-b sm:border-b-0 sm:border-r relative">
             <CardHeader className="px-6 py-6">
               <CardTitle>Assets</CardTitle>
             </CardHeader>

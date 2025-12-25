@@ -151,8 +151,8 @@ export default function UploadPage() {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Upload Data</h1>
-        <p className="text-muted-foreground">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Upload Data</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">
           Upload your HDFC bank statements (CSV, Excel, or PDF) to import transactions and fixed deposits.
         </p>
       </div>
