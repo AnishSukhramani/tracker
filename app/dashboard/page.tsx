@@ -252,7 +252,7 @@ export default function DashboardPage() {
           const untagged = "Untagged"
           tagTotals.set(untagged, (tagTotals.get(untagged) || 0) + txn.withdrawal_amt)
         } else {
-          tags.forEach((tag) => {
+          tags.forEach((tag: string) => {
             // Skip investment tag if somehow it got through
             if (tag.toLowerCase() !== 'investment') {
               tagTotals.set(tag, (tagTotals.get(tag) || 0) + txn.withdrawal_amt)
