@@ -1,0 +1,467 @@
+{
+  "tasks": [
+    {
+      "id": "setup-1",
+      "phase": "Phase 1: Setup & Infrastructure",
+      "title": "Initialize Next.js 14 app with TypeScript",
+      "description": "Create Next.js 14 project with App Router and TypeScript configuration",
+      "status": "done"
+    },
+    {
+      "id": "setup-2",
+      "phase": "Phase 1: Setup & Infrastructure",
+      "title": "Install and configure Tailwind CSS",
+      "description": "Set up Tailwind CSS with proper configuration files",
+      "status": "done"
+    },
+    {
+      "id": "setup-3",
+      "phase": "Phase 1: Setup & Infrastructure",
+      "title": "Install and configure shadcn/ui",
+      "description": "Initialize shadcn/ui and set up component library",
+      "status": "done"
+    },
+    {
+      "id": "setup-4",
+      "phase": "Phase 1: Setup & Infrastructure",
+      "title": "Install required dependencies",
+      "description": "Install React Query, Zustand, Lucide React, Recharts, papaparse, pdf-parse",
+      "status": "done"
+    },
+    {
+      "id": "setup-5",
+      "phase": "Phase 1: Setup & Infrastructure",
+      "title": "Set up Supabase client helper functions",
+      "description": "Create lib/supabase.ts with client initialization and helper functions",
+      "status": "done"
+    },
+    {
+      "id": "db-1",
+      "phase": "Phase 2: Database Setup",
+      "title": "Create transactions table migration",
+      "description": "Create Supabase migration for transactions table with all columns (id, date, narration, ref_no, value_date, withdrawal_amt, deposit_amt, closing_balance, tags, category, created_at)",
+      "status": "done"
+    },
+    {
+      "id": "db-2",
+      "phase": "Phase 2: Database Setup",
+      "title": "Create fixed_deposits table migration",
+      "description": "Create Supabase migration for fixed_deposits table (id, fd_number, principal_amt, interest_rate, maturity_date, maturity_amt, status)",
+      "status": "done"
+    },
+    {
+      "id": "db-3",
+      "phase": "Phase 2: Database Setup",
+      "title": "Create baby_steps table migration",
+      "description": "Create Supabase migration for baby_steps table (step_current, emergency_fund_amt, debt_total, mortgage_total)",
+      "status": "done"
+    },
+    {
+      "id": "db-4",
+      "phase": "Phase 2: Database Setup",
+      "title": "Set up Row Level Security (RLS) policies",
+      "description": "Configure RLS policies for all tables to ensure data privacy",
+      "status": "done"
+    },
+    {
+      "id": "layout-1",
+      "phase": "Phase 3: Global Layout & Navigation",
+      "title": "Create fixed left sidebar component",
+      "description": "Build sidebar with navigation links: Upload Data, Transactions, Dashboard, Labs, Baby Steps, Affordability, Cashflow Quadrant",
+      "status": "done"
+    },
+    {
+      "id": "layout-2",
+      "phase": "Phase 3: Global Layout & Navigation",
+      "title": "Create top bar with breadcrumbs",
+      "description": "Implement top navigation bar with breadcrumb navigation",
+      "status": "done"
+    },
+    {
+      "id": "layout-3",
+      "phase": "Phase 3: Global Layout & Navigation",
+      "title": "Implement theme toggle (Dark/Light mode)",
+      "description": "Add dark/light mode toggle using next-themes or similar",
+      "status": "done"
+    },
+    {
+      "id": "layout-4",
+      "phase": "Phase 3: Global Layout & Navigation",
+      "title": "Create root layout with sidebar and top bar",
+      "description": "Integrate sidebar and top bar into the main layout.tsx",
+      "status": "done"
+    },
+    {
+      "id": "upload-1",
+      "phase": "Phase 4: Upload & Parsing",
+      "title": "Create /upload page route",
+      "description": "Set up the upload page route structure",
+      "status": "done"
+    },
+    {
+      "id": "upload-2",
+      "phase": "Phase 4: Upload & Parsing",
+      "title": "Implement drag-and-drop file upload zone",
+      "description": "Create drag-and-drop component that accepts .csv, .xls, .pdf files",
+      "status": "done"
+    },
+    {
+      "id": "upload-3",
+      "phase": "Phase 4: Upload & Parsing",
+      "description": "Create utility function to strip HDFC CSV header lines (~22 lines of metadata)",
+      "title": "Create HDFC CSV header stripper utility",
+      "status": "done"
+    },
+    {
+      "id": "upload-4",
+      "phase": "Phase 4: Upload & Parsing",
+      "title": "Implement CSV/Excel parser using papaparse",
+      "description": "Parse CSV/Excel files and extract transaction data",
+      "status": "done"
+    },
+    {
+      "id": "upload-5",
+      "phase": "Phase 4: Upload & Parsing",
+      "title": "Create file preview component (first 5 rows)",
+      "description": "Display preview of parsed data with first 5 rows",
+      "status": "done"
+    },
+    {
+      "id": "upload-6",
+      "phase": "Phase 4: Upload & Parsing",
+      "title": "Build column mapping interface",
+      "description": "Allow user to map CSV columns to DB columns (date, narration, withdrawal_amt, etc.)",
+      "status": "done"
+    },
+    {
+      "id": "upload-7",
+      "phase": "Phase 4: Upload & Parsing",
+      "title": "Create PDF parser API route",
+      "description": "Create Next.js API route to handle PDF uploads and parse using pdf-parse",
+      "status": "done"
+    },
+    {
+      "id": "upload-8",
+      "phase": "Phase 4: Upload & Parsing",
+      "title": "Implement FD table extraction from PDF",
+      "description": "Extract Fixed Deposit tables from PDF using Regex/Positioning",
+      "status": "done"
+    },
+    {
+      "id": "upload-9",
+      "phase": "Phase 4: Upload & Parsing",
+      "title": "Create duplicate detection logic",
+      "description": "Implement upsert logic based on ref_no or date+narration+amount hash",
+      "status": "done"
+    },
+    {
+      "id": "upload-10",
+      "phase": "Phase 4: Upload & Parsing",
+      "title": "Implement 'Upload to Database' button and API",
+      "description": "Create API endpoint and button to save parsed transactions to Supabase",
+      "status": "done"
+    },
+    {
+      "id": "transactions-1",
+      "phase": "Phase 5: Transactions Page",
+      "title": "Create /transactions page route",
+      "description": "Set up the transactions page route structure",
+      "status": "done"
+    },
+    {
+      "id": "transactions-2",
+      "phase": "Phase 5: Transactions Page",
+      "title": "Build transactions table component",
+      "description": "Create table with columns: Date, Narration, Tags, Withdrawal (Red), Deposit (Green), Balance",
+      "status": "done"
+    },
+    {
+      "id": "transactions-3",
+      "phase": "Phase 5: Transactions Page",
+      "title": "Implement server-side pagination",
+      "description": "Add pagination with options for 20/50/100 rows per page",
+      "status": "done"
+    },
+    {
+      "id": "transactions-4",
+      "phase": "Phase 5: Transactions Page",
+      "title": "Add search functionality",
+      "description": "Implement text input filtering for narration or tags",
+      "status": "done"
+    },
+    {
+      "id": "transactions-5",
+      "phase": "Phase 5: Transactions Page",
+      "title": "Create grouping toggle/dropdown UI",
+      "description": "Add UI control for 'Group by Date' | 'Group by Narration' | 'None'",
+      "status": "done"
+    },
+    {
+      "id": "transactions-6",
+      "phase": "Phase 5: Transactions Page",
+      "title": "Implement 'Group by Date' logic",
+      "description": "Create useMemo hook to aggregate transactions by date with expandable rows",
+      "status": "done"
+    },
+    {
+      "id": "transactions-7",
+      "phase": "Phase 5: Transactions Page",
+      "title": "Implement 'Group by Narration' logic with fuzzy matching",
+      "description": "Create fuzzy matching algorithm to group similar narrations (e.g., 'Uber Trip...', 'Uber Ride...')",
+      "status": "done"
+    },
+    {
+      "id": "transactions-8",
+      "phase": "Phase 5: Transactions Page",
+      "title": "Add expandable row feature for grouped transactions",
+      "description": "Implement click-to-expand functionality to show individual transactions in grouped rows",
+      "status": "done"
+    },
+    {
+      "id": "transactions-9",
+      "phase": "Phase 5: Transactions Page",
+      "title": "Implement editable tags (badge component)",
+      "description": "Create editable tag badges that can be modified inline",
+      "status": "done"
+    },
+    {
+      "id": "transactions-10",
+      "phase": "Phase 5: Transactions Page",
+      "title": "Add row selection functionality",
+      "description": "Implement checkbox selection for multiple rows",
+      "status": "done"
+    },
+    {
+      "id": "transactions-11",
+      "phase": "Phase 5: Transactions Page",
+      "title": "Implement bulk 'Add Tag' action",
+      "description": "Create bulk action to add tags to multiple selected transactions",
+      "status": "done"
+    },
+    {
+      "id": "dashboard-1",
+      "phase": "Phase 6: Dashboard",
+      "title": "Create /dashboard page route",
+      "description": "Set up the dashboard page route structure",
+      "status": "done"
+    },
+    {
+      "id": "dashboard-2",
+      "phase": "Phase 6: Dashboard",
+      "title": "Build expense distribution pie chart",
+      "description": "Create Recharts pie chart showing expenses grouped by tags or category",
+      "status": "done"
+    },
+    {
+      "id": "dashboard-3",
+      "phase": "Phase 6: Dashboard",
+      "title": "Build monthly trend bar chart",
+      "description": "Create Recharts bar chart showing Total Income vs Total Expense per month",
+      "status": "done"
+    },
+    {
+      "id": "dashboard-4",
+      "phase": "Phase 6: Dashboard",
+      "title": "Implement net worth ticker",
+      "description": "Calculate and display sum of (Latest Closing Balance + All FD Principal Amounts)",
+      "status": "done"
+    },
+    {
+      "id": "dashboard-5",
+      "phase": "Phase 6: Dashboard",
+      "title": "Create date range picker component",
+      "description": "Build date range picker with presets: Last 30 days, YTD, Custom",
+      "status": "done"
+    },
+    {
+      "id": "dashboard-6",
+      "phase": "Phase 6: Dashboard",
+      "title": "Connect date range filter to all dashboard charts",
+      "description": "Apply date range filter to pie chart, bar chart, and net worth calculations",
+      "status": "done"
+    },
+    {
+      "id": "baby-steps-1",
+      "phase": "Phase 7: Baby Steps Page",
+      "title": "Create /baby-steps page route",
+      "description": "Set up the baby steps page route structure",
+      "status": "done"
+    },
+    {
+      "id": "baby-steps-2",
+      "phase": "Phase 7: Baby Steps Page",
+      "title": "Build vertical stepper/progress tracker UI",
+      "description": "Create visual stepper component for Dave Ramsey's 7 Steps",
+      "status": "done"
+    },
+    {
+      "id": "baby-steps-3",
+      "phase": "Phase 7: Baby Steps Page",
+      "title": "Implement Step 1: Emergency Fund check",
+      "description": "Check if savings_balance >= ₹50,000 and update step status",
+      "status": "done"
+    },
+    {
+      "id": "baby-steps-4",
+      "phase": "Phase 7: Baby Steps Page",
+      "title": "Implement Step 2: Debt tracking input",
+      "description": "Add input field for manual debt tracking (Snowball method)",
+      "status": "done"
+    },
+    {
+      "id": "baby-steps-5",
+      "phase": "Phase 7: Baby Steps Page",
+      "title": "Implement Step 3: 3-6 Months expenses calculation",
+      "description": "Calculate avg_monthly_expense * 6 and compare with savings_balance",
+      "status": "done"
+    },
+    {
+      "id": "baby-steps-6",
+      "phase": "Phase 7: Baby Steps Page",
+      "title": "Implement Step 4: Invest 15% checkbox",
+      "description": "Add manual checkbox to mark Step 4 completion",
+      "status": "done"
+    },
+    {
+      "id": "baby-steps-7",
+      "phase": "Phase 7: Baby Steps Page",
+      "title": "Implement Step 5: College Fund checkbox",
+      "description": "Add manual checkbox to mark Step 5 completion",
+      "status": "done"
+    },
+    {
+      "id": "baby-steps-8",
+      "phase": "Phase 7: Baby Steps Page",
+      "title": "Implement Step 6: Mortgage balance input",
+      "description": "Add input field for remaining home loan balance",
+      "status": "done"
+    },
+    {
+      "id": "baby-steps-9",
+      "phase": "Phase 7: Baby Steps Page",
+      "title": "Implement Step 7: Build Wealth & Give",
+      "description": "Add manual checkbox or status indicator for Step 7",
+      "status": "done"
+    },
+    {
+      "id": "baby-steps-10",
+      "phase": "Phase 7: Baby Steps Page",
+      "title": "Create API endpoints for baby_steps CRUD",
+      "description": "Create API routes to read and update baby_steps table",
+      "status": "done"
+    },
+    {
+      "id": "affordability-1",
+      "phase": "Phase 8: Affordability Calculator",
+      "title": "Create /affordability page route",
+      "description": "Set up the affordability calculator page route structure",
+      "status": "done"
+    },
+    {
+      "id": "affordability-2",
+      "phase": "Phase 8: Affordability Calculator",
+      "title": "Build input form (Item Name, Cost)",
+      "description": "Create form with fields for item name and cost",
+      "status": "done"
+    },
+    {
+      "id": "affordability-3",
+      "phase": "Phase 8: Affordability Calculator",
+      "title": "Implement Rule 1: Cash payment check",
+      "description": "Check if latest_closing_balance > Cost",
+      "status": "done"
+    },
+    {
+      "id": "affordability-4",
+      "phase": "Phase 8: Affordability Calculator",
+      "title": "Implement Rule 2: Emergency Fund check",
+      "description": "Check if purchase would dip below Baby Step 1 (Emergency Fund)",
+      "status": "done"
+    },
+    {
+      "id": "affordability-5",
+      "phase": "Phase 8: Affordability Calculator",
+      "title": "Implement Rule 3: Needs vs Wants check",
+      "description": "If 'Want', check if cost < 30% of monthly disposable income",
+      "status": "done"
+    },
+    {
+      "id": "affordability-6",
+      "phase": "Phase 8: Affordability Calculator",
+      "title": "Build decision output card",
+      "description": "Display Green 'Yes' or Red 'No' card with reasons for each rule",
+      "status": "done"
+    },
+    {
+      "id": "cashflow-1",
+      "phase": "Phase 9: Cashflow Quadrant",
+      "title": "Create /cashflow page route",
+      "description": "Set up the cashflow quadrant page route structure",
+      "status": "done"
+    },
+    {
+      "id": "cashflow-2",
+      "phase": "Phase 9: Cashflow Quadrant",
+      "title": "Build 2x2 matrix visual component",
+      "description": "Create visual representation of E, S, B, I quadrants",
+      "status": "done"
+    },
+    {
+      "id": "cashflow-3",
+      "phase": "Phase 9: Cashflow Quadrant",
+      "title": "Implement income source detection logic",
+      "description": "Map income sources to quadrants: E (Salary), S (Freelance), B (Business), I (FD Interest, Dividends)",
+      "status": "done"
+    },
+    {
+      "id": "cashflow-4",
+      "phase": "Phase 9: Cashflow Quadrant",
+      "title": "Calculate and display percentage breakdown",
+      "description": "Show percentage breakdown of where user's income flows from each quadrant",
+      "status": "done"
+    },
+    {
+      "id": "labs-1",
+      "phase": "Phase 10: Labs Page",
+      "title": "Create /labs page route",
+      "description": "Set up the labs page route structure",
+      "status": "done"
+    },
+    {
+      "id": "labs-2",
+      "phase": "Phase 10: Labs Page",
+      "title": "Build placeholder UI card",
+      "description": "Create simple UI card saying 'AI Insights coming soon.'",
+      "status": "done"
+    },
+    {
+      "id": "testing-1",
+      "phase": "Phase 11: Testing & Polish",
+      "title": "Add error handling and loading states",
+      "description": "Implement error boundaries and loading states throughout the app",
+      "status": "done"
+    },
+    {
+      "id": "testing-2",
+      "phase": "Phase 11: Testing & Polish",
+      "title": "Add form validation",
+      "description": "Implement validation for all input forms and file uploads",
+      "status": "done"
+    },
+    {
+      "id": "testing-3",
+      "phase": "Phase 11: Testing & Polish",
+      "title": "Optimize performance",
+      "description": "Add React Query caching, optimize re-renders, and implement proper memoization",
+      "status": "done"
+    },
+    {
+      "id": "testing-4",
+      "phase": "Phase 11: Testing & Polish",
+      "title": "Responsive design testing",
+      "description": "Ensure all pages work properly on mobile and tablet devices",
+      "status": "done"
+    }
+  ]
+}
+
