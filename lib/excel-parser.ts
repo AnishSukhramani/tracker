@@ -43,6 +43,7 @@ export async function parseExcelFile(file: File): Promise<ParseResult> {
         const jsonData = XLSX.utils.sheet_to_json(worksheet, {
           raw: false, // Convert all values to strings
           defval: "", // Default value for empty cells
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         }) as Record<string, any>[]
         
         if (jsonData.length === 0) {

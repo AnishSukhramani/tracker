@@ -25,6 +25,19 @@ export function FilePreview({
   errors = [],
   maxRows = 5,
 }: FilePreviewProps) {
+  // Get the first N rows
+  const previewData = React.useMemo(() => data.slice(0, maxRows), [data, maxRows])
+  
+  // Get all unique column names from the data
+  const columns = React.useMemo(() => {
+    if (data.length === 0) return []
+    const columnSet = new Set<string>()
+    previewData.forEach((row: ParsedTransaction) => {
+      Object.keys(row).forEach((key: string) => columnSet.add(key))
+    })
+    return Array.from(columnSet).sort()
+  }, [previewData, data.length])
+
   if (data.length === 0) {
     return (
       <Card>
@@ -35,18 +48,6 @@ export function FilePreview({
       </Card>
     )
   }
-
-  // Get the first N rows
-  const previewData = data.slice(0, maxRows)
-  
-  // Get all unique column names from the data
-  const columns = React.useMemo(() => {
-    const columnSet = new Set<string>()
-    previewData.forEach((row: ParsedTransaction) => {
-      Object.keys(row).forEach((key: string) => columnSet.add(key))
-    })
-    return Array.from(columnSet).sort()
-  }, [previewData])
 
   return (
     <div className="flex flex-col gap-4">

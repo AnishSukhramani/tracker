@@ -14,6 +14,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     const { transactions, mapping } = body as {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       transactions: Record<string, any>[]
       mapping: Record<string, DatabaseColumn>
     }

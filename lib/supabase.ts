@@ -2,6 +2,7 @@ import { createClient, SupabaseClient } from '@supabase/supabase-js'
 import type { Database } from './database.types'
 
 // Client-side Supabase client
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const createClientSupabase = (): SupabaseClient<any, 'public', any> => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
@@ -17,6 +18,7 @@ export const createClientSupabase = (): SupabaseClient<any, 'public', any> => {
 }
 
 // Server-side Supabase client (for API routes and server components)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const createServerSupabase = (): SupabaseClient<any, 'public', any> => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
@@ -123,6 +125,7 @@ export async function getTransactions(filters?: {
     }
     
     // Filter for untagged entries (null or empty array)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const filteredData = (allDataResult.data || []).filter((txn: any) => {
       const tags = txn.tags
       return !tags || tags.length === 0
@@ -178,6 +181,7 @@ export async function upsertTransactions(transactions: Database['public']['Table
   }
   
   const insertedIds: string[] = []
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let lastError: any = null
   
   // Insert in chunks

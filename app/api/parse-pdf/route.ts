@@ -5,6 +5,7 @@ import { extractFixedDeposits } from "@/lib/pdf-fd-extractor"
 async function parsePdf(buffer: Buffer) {
   const pdfParseModule = await import("pdf-parse")
   // pdf-parse exports the function directly as a named export or the module itself
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const pdfParse = pdfParseModule as unknown as (buffer: Buffer) => Promise<any>
   return pdfParse(buffer)
 }
