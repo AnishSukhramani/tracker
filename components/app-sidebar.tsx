@@ -19,6 +19,7 @@ import {
   Baby,
   PiggyBank,
   ArrowUpDown,
+  Sparkles,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -52,6 +53,11 @@ const navigationItems: Array<{
     title: "Cash Flow",
     url: "/cashflow",
     icon: ArrowUpDown,
+  },
+  {
+    title: "Expense Advisor",
+    url: "/expense-advisor",
+    icon: Sparkles,
   },
 ]
 

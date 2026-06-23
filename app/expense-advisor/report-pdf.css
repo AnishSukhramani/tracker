@@ -1,0 +1,74 @@
+/* PDF export layout — fixed A4 width, section breaks, expanded audit details */
+
+#expense-advisor-report:not(.pdf-export-layout) [data-pdf-cover] {
+  display: none;
+}
+
+#expense-advisor-report.pdf-export-layout {
+  width: 720px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #ffffff !important;
+  color: #0a0a0a !important;
+}
+
+#expense-advisor-report.pdf-export-layout .pdf-section {
+  break-inside: avoid;
+  margin-bottom: 0;
+}
+
+#expense-advisor-report.pdf-export-layout .pdf-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+#expense-advisor-report.pdf-export-layout .pdf-charts-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#expense-advisor-report.pdf-export-layout .pdf-charts-stack > * {
+  width: 100%;
+}
+
+#expense-advisor-report.pdf-export-layout [data-pdf-hide] {
+  display: none !important;
+}
+
+#expense-advisor-report.pdf-export-layout [data-radix-collapsible-content] {
+  display: block !important;
+  overflow: visible !important;
+}
+
+#expense-advisor-report.pdf-export-layout .pdf-cover {
+  border-bottom: 2px solid #e5e5e5;
+  padding-bottom: 20px;
+  margin-bottom: 8px;
+}
+
+#expense-advisor-report.pdf-export-layout .pdf-section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e5e5;
+  color: #0a0a0a;
+}
+
+#expense-advisor-report.pdf-export-layout .line-clamp-3 {
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  display: block;
+  overflow: visible;
+}
+
+#expense-advisor-report.pdf-export-layout table {
+  font-size: 0.75rem;
+}
+
+#expense-advisor-report.pdf-export-layout .recharts-responsive-container {
+  min-height: 220px !important;
+}

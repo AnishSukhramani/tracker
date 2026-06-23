@@ -22,6 +22,8 @@ const routeNames: Record<string, string> = {
   "/dashboard": "Dashboard",
   "/baby-steps": "Baby Steps",
   "/investments": "Investments",
+  "/cashflow": "Cash Flow",
+  "/expense-advisor": "Expense Advisor",
 }
 
 function generateBreadcrumbs(pathname: string) {
